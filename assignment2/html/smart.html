@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html  xml:lang="en">
+            <title>Bashayer Halawani</title>
+
+    <head>                  <!--head include title, scripts, link and meta-->
+        
+        
+        <style>
+        
+            .show{display: block;}
+            .hide{display:none;}
+        
+        </style>
+           <meta name="viewport" content="width=device-width, initial-scale=1">      <!--this to make the page responsive(fitt properly) depends on the used devices -->
+  
+                <link rel="stylesheet" href="../css/mystyles2.css"> 
+                 <!--this to connect the page with the css file to import page format  -->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+        
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+ </head>
+                    
+                   
+   <!--script to make user select one answer from a list then give the user an alert to show if he/she selected the correct or the wrong answer, then show him/her the result at the end of the page-->           
+     <script type="text/javascript" language="JavaScript">
+         score=0;     //<!--initialize the score parameter --> 
+function select(obj){
+	id = obj.getAttribute("class");//<!-- look for class --> 
+	if (id == "y")//<!--if the class value is "y" then do the following --> 
+		{alert(" Correct..right guess! ");
+		obj.parentNode.previousSibling.setAttribute("class", "right");//<!--case "right" is defined in the css file --> 
+         
+         
+        //<!-- increase the score if the answer is right --> 
+		score++;
+		
+         
+	}
+	
+        
+        else
+            //<!--if the class value is not "y" then do the following --> 
+	{	alert("Nope..not this choice");
+        hint = obj.getAttribute("hint");//<!--show hint to user --> 
+		alert(hint);
+		obj.parentNode.parentNode.setAttribute("class", "i");
+	}
+}
+         //<!--function to track the selected answers and score and show it at the end of the page --> 
+         function scorebutton(obj){
+             
+             scoreElem=document.getElementById("final_score");
+             ctnode=document.createTextNode(score);
+		      scoreElem.appendChild(ctnode);
+             obj.parentNode.setAttribute("class","hide")
+             obj.parentNode.nextSibling.nextSibling.setAttribute("class","show")
+             
+             
+             
+             
+         }
+
+</script> 
+             
+
+
+      
+                <!--body-->
+                
+                
+                    <body>
+                  <br>  <!--this to make the page content start after one line down -->
+
+
+
+<ul class="breadcrumb"><!-- bootstrap structure breadcrumb to tack the opened pages at the top of the page-->
+  <li><a href="index.html">Home</a></li>
+  <li>More about me</li>
+  
+</ul>
+
+<center>
+<div class="container"><!--Bootstrap structure to adds a space left and right padding to any HTML element.(proper alignment and padding) -->
+ 
+  <div class="row">
+    <div class="col-sm-6" style="background-color:#7accd6;">
+        <b><a href="smart.html"> Know more about me</a> </b>
+        
+    </div>
+    <div class="col-sm-6" style="background-color:#82d9d4;">
+        <b><a href="find.html"> Find Me </a> </b>
+    </div>
+    <hr>
+  </div>
+</div>
+
+
+
+<h1 class="style2">Quick questions</h1>    
+    
+    <p class="style3">Let's check how well you know me through this short quiz 
+    </p>
+    
+<h3 class = "style3">1- Guess what was my year of birth...?</h3><ul>
+<p class = "y"  onclick=select(this)>1988</p><!--user select the right answer-->
+<p class = "n" hint="My year of birth include two identecal numbers" onclick=select(this)>1986</p>
+<p class = "n"  hint="My year of birth include two identecal numbers"  onclick=select(this)>1990</p>
+<p class = "n" hint="My year of birth include two identecal numbers"  onclick=select(this)>1987</p>
+</ul>
+    
+    
+    
+    
+        
+<h3 class = "style3">2- What is my favorite song..?</h3><ul>
+<p class = "n" hint="Beauty is every where ;) look for it " onclick=select(this)>love me like you do</p>
+<p class = "n" hint="Beauty  is every where ;) look for it " onclick=select(this)>Thousand years</p>
+<p class = "n" hint="Beauty  is every where ;) look for it " onclick=select(this)>wake me up</p>
+<p class = "y" onclick=select(this)>Scars To Your Beautiful</p>
+</ul>
+    
+    
+        
+<h3 class = "style3">3- What is my origin country that I was born in.. ?  </h3><ul>
+<p class = "n" hint="The second part starting with A " onclick=select(this)>United Kingdom</p>
+<p class = "n" hint="The second part starting with A" onclick=select(this)>US</p>
+<p class = "y" onclick=select(this)>Saudi Arabia</p>
+<p class = "n" hint="The second part starting with A" onclick=select(this)>Pakistan</p>
+</ul>
+    
+    
+        
+<h3 class = "style3">4- what is my favorite cuisine..? </h3><ul>
+<p class = "n" hint="Cheese lover ..Pasta and pizza " onclick=select(this)> Indian </p>
+<p class = "y" onclick=select(this)>Italian</p>
+<p class = "n" hint="Cheese lover ..Pasta and pizza" onclick=select(this)>American</p>
+<p class = "n" hint="Cheese lover ..Pasta and pizza" onclick=select(this)>Mexican</p>
+</ul>
+    
+                        
+<!--button to show the result -->
+          
+<ul>
+    <li> <button type="button"
+                id="score" onclick=scorebutton(this)>
+            Click here to see your score </button>
+<br></li>
+    
+    <li style="display:none;">
+    
+      <h3>Your score is: <span id="final_score"></span></h3>
+    </li>
+    </ul>
+
+    
+    
+
+  <hr>
+
+                              
+<!--FOOTER of the page contains navigation bar which is in bootstrap structure -->
+                                                 
+                                                 
+                                                 
+                                                
+                                  <nav class="navbar navbar-default"> <div class="container"><footer class="center">
+  
+   <center>
+<ul class="nav navbar-nav">
+     <li class="active"><a href="index.html">Home</a></li>
+     <li><a href="edu.html">Education</a></li>
+      <li><a href="exper.html">Experience and Training</a></li>
+      <li><a href="member.html">professional membership</a></li>
+    
+    </ul></center>
+                                      </footer></div>
+                                      
+</nav>
+                        </center>
+    <br><br>
+                                          
+                                                  
+                                                
+                                                    </body>
+                                                    </html>
